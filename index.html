@@ -2091,122 +2091,14 @@
 
         // ROADMAP DATA
         const IDEAL_ROADMAP = {
-            title: "2nd Week Road Map (MHT-CET 2026 1st Attempt)",
-            weeks: {
-                1: [
-                    { day: "Monday, 16th March", physics: "Oscillation", chemistry: "Chemical Kinetics + Solid State + Amines", maths: "Complex Nos + Probability Distribution" },
-                    { day: "Tuesday, 17th March", physics: "Semiconductors 11th 12th + MEEC (Magnetic effect of electric current)", chemistry: "Coordination compounds + S block", maths: "Vectors" },
-                    { day: "Wednesday, 18th March", physics: "AC circuits + structure of Atom (Physics)", chemistry: "Aldehyde Ketone and Carboxylic acids + Thermodynamics", maths: "Vectors Continued" },
-                    { day: "Thursday, 19th March", physics: "EMI + Magnetic Materials", chemistry: "Chemistry in everyday life + States of matter (both 11th)", maths: "Lines and Planes" },
-                    { day: "Friday, 20th March", physics: "Current Electricity + Thermodynamics", chemistry: "Electrochemistry + Halogen Derivatives", maths: "Lines and planes Continued" },
-                    { day: "Saturday, 21st March", physics: "BUFFER", chemistry: "BUFFER", maths: "BUFFER" },
-                    { day: "Sunday, 22nd March", physics: "BUFFER", chemistry: "BUFFER", maths: "BUFFER" },
-                ]
-            }
+            title: "Weekly Road Map",
+            weeks: {}
         };
 
         // Student roadmaps store
-        const STUDENT_ROADMAPS = {
-            "student@nn.com": null // null = using ideal, object = custom
-        };
+        let STUDENT_ROADMAPS = {};
 
-        // ── RICH STUDENT HISTORY DATA ─────────────────────────
-        const STUDENT_HISTORY = {
-            'student@nn.com': {
-                name: 'Arjun Mehta', batch: 'MHT-CET 2026', streak: 12, longestStreak: 18,
-                totalCheckins: 28, missedDays: 4, goalsHit: 78, avgMood: 4.1,
-                moodHistory: [4, 3, 4, 5, 4, 3, 4, 4, 5, 4, 3, 4, 4, 5, 4, 4, 3, 4, 5, 4, 4, 4, 5, 3, 4, 5, 4, 4],
-                goalHistory: ['Yes', 'Partial', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
-                weeklyGoals: [82, 78, 85, 71, 78],   // last 5 weeks
-                checkinDays: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0], // 4 weeks
-                recentTargets: [
-                    { date: 'Today', target: 'Finish Chapter 12 Physics + 30 MCQs', mood: 4, goals: 'Yes' },
-                    { date: 'Yesterday', target: 'AC Circuits + NCERT Exemplars Maths', mood: 4, goals: 'Yes' },
-                    { date: '2 days ago', target: 'Chemical Kinetics revision + Mock Test', mood: 3, goals: 'Partial' },
-                    { date: '3 days ago', target: 'Vectors + Solid State', mood: 5, goals: 'Yes' },
-                    { date: '4 days ago', target: 'Semiconductors + Probability', mood: 4, goals: 'Yes' },
-                ],
-                subjectProgress: { physics: 72, chemistry: 81, maths: 76 },
-                notes: ['Need help with electrostatics problems', 'Feeling confident about organic chemistry']
-            },
-            'sneha@nn.com': {
-                name: 'Sneha Patil', batch: 'MHT-CET 2026', streak: 21, longestStreak: 21,
-                totalCheckins: 35, missedDays: 1, goalsHit: 97, avgMood: 4.7,
-                moodHistory: [5, 5, 4, 5, 5, 4, 5, 5, 5, 4, 5, 5, 5, 4, 5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 4, 5, 5, 5],
-                goalHistory: ['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes'],
-                weeklyGoals: [95, 97, 98, 96, 97],
-                checkinDays: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1],
-                recentTargets: [
-                    { date: 'Today', target: 'Complete Organic Chemistry + Essay', mood: 5, goals: 'Yes' },
-                    { date: 'Yesterday', target: 'Full mock test (Physics + Chemistry)', mood: 5, goals: 'Yes' },
-                    { date: '2 days ago', target: 'Coordinate geometry + Thermodynamics', mood: 4, goals: 'Yes' },
-                    { date: '3 days ago', target: 'Electrochemistry deep dive', mood: 5, goals: 'Yes' },
-                    { date: '4 days ago', target: 'All India mock test attempt', mood: 5, goals: 'Yes' },
-                ],
-                subjectProgress: { physics: 94, chemistry: 98, maths: 96 },
-                notes: ['Top performer — keep up the momentum!']
-            },
-            'rohit@nn.com': {
-                name: 'Rohit Kulkarni', batch: 'JEE 2025', streak: 0, longestStreak: 14,
-                totalCheckins: 18, missedDays: 14, goalsHit: 30, avgMood: 2.2,
-                moodHistory: [3, 2, 3, 2, 1, 2, 2, 3, 2, 1, 2, 2, 3, 2, 1, 2, 2, 2, 1, 2, 2, 3, 1, 2, 2, 1, 2, 2],
-                goalHistory: ['Partial', 'No', 'No', 'Yes', 'No', 'No', 'No', 'Partial', 'No', 'No', 'No', 'No', 'Partial', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Partial', 'No', 'No', 'No', 'No', 'No', 'No', 'No'],
-                weeklyGoals: [45, 38, 32, 25, 30],
-                checkinDays: [1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                recentTargets: [
-                    { date: '4 days ago', target: 'JEE previous papers 2022', mood: 2, goals: 'No' },
-                    { date: '5 days ago', target: 'Mechanics revision', mood: 3, goals: 'Partial' },
-                    { date: '8 days ago', target: 'Electrostatics chapter', mood: 2, goals: 'No' },
-                ],
-                subjectProgress: { physics: 28, chemistry: 32, maths: 35 },
-                notes: ['Struggling with consistency', 'Reached out — says personal issues at home']
-            },
-            'priya@nn.com': {
-                name: 'Priya Sharma', batch: 'Board 2025', streak: 5, longestStreak: 12,
-                totalCheckins: 22, missedDays: 10, goalsHit: 55, avgMood: 2.5,
-                moodHistory: [3, 3, 2, 3, 3, 2, 2, 3, 3, 2, 2, 3, 3, 3, 2, 2, 3, 3, 2, 1, 2, 3, 2, 2, 1, 2, 3, 2],
-                goalHistory: ['Yes', 'Partial', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'Partial', 'No', 'Partial', 'Yes', 'Yes', 'Partial', 'No', 'No', 'Yes', 'Yes', 'Partial', 'No', 'No', 'Yes', 'Partial', 'No', 'No', 'No', 'Yes', 'Partial'],
-                weeklyGoals: [60, 55, 58, 45, 55],
-                checkinDays: [1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0],
-                recentTargets: [
-                    { date: 'Today', target: 'English essay + History chapter 4', mood: 1, goals: 'No' },
-                    { date: 'Yesterday', target: 'Biology revision + Chemistry formulas', mood: 1, goals: 'Partial' },
-                    { date: '2 days ago', target: 'Maths integration practice', mood: 2, goals: 'No' },
-                ],
-                subjectProgress: { physics: 48, chemistry: 55, maths: 60 },
-                notes: ['Low mood pattern — needs mentor call', 'Board exam anxiety reported']
-            },
-            'kiran@nn.com': {
-                name: 'Kiran Bhatia', batch: 'MHT-CET 2026', streak: 18, longestStreak: 22,
-                totalCheckins: 32, missedDays: 3, goalsHit: 89, avgMood: 4.2,
-                moodHistory: [4, 4, 5, 4, 4, 3, 4, 4, 5, 4, 4, 4, 5, 4, 4, 4, 4, 5, 4, 4, 3, 4, 5, 4, 4, 4, 5, 4],
-                goalHistory: ['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Partial'],
-                weeklyGoals: [88, 92, 85, 90, 89],
-                checkinDays: [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0],
-                recentTargets: [
-                    { date: 'Today', target: 'Integration + History revision', mood: 4, goals: 'Partial' },
-                    { date: 'Yesterday', target: 'Coordinate geometry + AC circuits', mood: 4, goals: 'Yes' },
-                    { date: '2 days ago', target: 'Organic chemistry practice test', mood: 5, goals: 'Yes' },
-                ],
-                subjectProgress: { physics: 86, chemistry: 91, maths: 88 },
-                notes: ['Consistent performer', 'Requested extra problems for Maths']
-            },
-            'dev@nn.com': {
-                name: 'Dev Tiwari', batch: 'NEET 2025', streak: 9, longestStreak: 16,
-                totalCheckins: 25, missedDays: 7, goalsHit: 80, avgMood: 3.8,
-                moodHistory: [4, 3, 4, 4, 3, 4, 4, 4, 3, 4, 4, 4, 3, 4, 4, 3, 4, 4, 4, 3, 4, 4, 4, 3, 4, 4, 4, 3],
-                goalHistory: ['Yes', 'No', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Partial', 'Yes', 'Yes', 'Yes', 'No'],
-                weeklyGoals: [75, 82, 78, 80, 80],
-                checkinDays: [1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0],
-                recentTargets: [
-                    { date: 'Today', target: 'Bio Ch 8 + NCERT exemplars', mood: 3, goals: 'No' },
-                    { date: 'Yesterday', target: 'Genetics + Organic chemistry', mood: 4, goals: 'Yes' },
-                    { date: '2 days ago', target: 'Physics electrostatics + Cell biology', mood: 4, goals: 'Yes' },
-                ],
-                subjectProgress: { physics: 77, chemistry: 83, maths: 72 },
-                notes: ['Was unwell — missed 2 days', 'Good recovery pattern']
-            }
-        };
+
 
         // ── SUPABASE CLIENT ────────────────────────────────────
         const SUPABASE_URL = 'https://peowhmmzymowydvbolsx.supabase.co';
@@ -2401,15 +2293,15 @@
             <!-- Stats -->
             <div class="stat-grid">
                 <div class="stat-tile">
-                    <div class="num grad-text">12</div>
+                    <div class="num grad-text" id="stu-stat-streak">--</div>
                     <div class="lbl">🔥 Day Streak</div>
                 </div>
                 <div class="stat-tile">
-                    <div class="num grad-text">78%</div>
+                    <div class="num grad-text" id="stu-stat-goals">--%</div>
                     <div class="lbl">✅ Goals Hit</div>
                 </div>
                 <div class="stat-tile">
-                    <div class="num grad-text">4.1</div>
+                    <div class="num grad-text" id="stu-stat-mood">--</div>
                     <div class="lbl">😊 Avg Mood</div>
                 </div>
             </div>
@@ -2509,6 +2401,7 @@
                     </div>
                 </div>
                 <div class="rm-stu-body">
+                    <div class="rm-week-tabs" id="stu-rm-week-tabs" style="margin-bottom: 14px;"></div>
                     <table class="rm-stu-table" id="rm-stu-table">
                         <thead>
                             <tr>
@@ -2561,103 +2454,47 @@
                 <!-- OVERVIEW -->
                 <div id="tab-overview" class="tab-panel active">
                     <div class="admin-top">
-                        <h1>Good morning, <span class="grad-text">Admin 👋</span></h1>
+                        <h1><span id="admin-greeting-text">Good morning</span>, <span class="grad-text">Admin 👋</span></h1>
                     </div>
                     <div class="stat-row">
                         <div class="scard">
                             <div class="ico">👥</div>
-                            <div class="val grad-text">24</div>
+                            <div class="val grad-text" id="admin-stat-total">--</div>
                             <div class="desc">Total Students</div>
                         </div>
                         <div class="scard">
                             <div class="ico">✅</div>
-                            <div class="val" style="color:#22c55e">18</div>
+                            <div class="val" style="color:#22c55e" id="admin-stat-checkins">--</div>
                             <div class="desc">Checked in today</div>
                         </div>
                         <div class="scard">
                             <div class="ico">😊</div>
-                            <div class="val" style="color:#00D4FF">4.2</div>
+                            <div class="val" style="color:#00D4FF" id="admin-stat-mood">--</div>
                             <div class="desc">Avg mood today</div>
                         </div>
                         <div class="scard">
                             <div class="ico">🎯</div>
-                            <div class="val" style="color:#7B35FF">71%</div>
+                            <div class="val" style="color:#7B35FF" id="admin-stat-goals">--%</div>
                             <div class="desc">Goals completed</div>
                         </div>
                     </div>
                     <div class="sec-title">⚠️ Students needing attention</div>
-                    <div class="alert-item danger">
-                        <div class="ci-av">RK</div>
-                        <div class="ci-info">
-                            <div class="ci-name">Rohit Kulkarni</div>
-                            <div class="ci-target">Missed check-in 3 days in a row. Streak: 0</div>
-                            <div class="ci-meta"><span class="badge badge-red">At Risk</span><span
-                                    class="badge badge-amber">Needs Follow-up</span></div>
-                        </div>
-                    </div>
-                    <div class="alert-item warn" style="margin-bottom:24px;">
-                        <div class="ci-av" style="background:linear-gradient(135deg,#ff5c72,#ff9a3c)">PS</div>
-                        <div class="ci-info">
-                            <div class="ci-name">Priya Sharma</div>
-                            <div class="ci-target">Mood: 😞 Very Low — 2 consecutive days</div>
-                            <div class="ci-meta"><span class="badge badge-amber">Low Mood</span><span
-                                    class="badge badge-blue">Check in with her</span></div>
-                        </div>
+                    <div id="admin-alerts-container">
+                        <div style="font-size:13px;color:var(--nn-muted);margin-bottom:24px;">Loading alerts...</div>
                     </div>
                     <div class="chart-row">
                         <div class="chart-box">
                             <div class="sec-title">Goal completion this week</div>
-                            <div class="mini-bar-wrap">
-                                <div class="mb-row"><span class="nm">Monday</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:88%"></div>
-                                    </div><span class="mb-pct">88%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">Tuesday</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:75%"></div>
-                                    </div><span class="mb-pct">75%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">Wednesday</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:82%"></div>
-                                    </div><span class="mb-pct">82%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">Thursday</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:65%"></div>
-                                    </div><span class="mb-pct">65%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">Today</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:71%"></div>
-                                    </div><span class="mb-pct">71%</span>
-                                </div>
+                            <div class="mini-bar-wrap" id="admin-overview-goal-chart">
+                                <div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">Loading data...</div>
                             </div>
                         </div>
                         <div class="chart-box">
                             <div class="sec-title">Average mood this week</div>
-                            <div class="mood-chart">
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:70%"></div>
-                                    <div class="mc-lbl">Mon</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:55%"></div>
-                                    <div class="mc-lbl">Tue</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:80%"></div>
-                                    <div class="mc-lbl">Wed</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:60%"></div>
-                                    <div class="mc-lbl">Thu</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:84%"></div>
-                                    <div class="mc-lbl">Fri</div>
-                                </div>
+                            <div class="mood-chart" id="admin-overview-mood-chart">
+                            </div>
+                            <div id="admin-overview-mood-lbls"
+                                style="display:flex;justify-content:space-around;font-size:9px;color:var(--nn-muted);margin-top:4px;">
                             </div>
                         </div>
                     </div>
@@ -2791,7 +2628,7 @@
                 <div id="tab-checkins" class="tab-panel">
                     <div class="admin-top">
                         <h1>Today's Check-ins</h1><span class="badge badge-green"
-                            style="font-size:13px;padding:5px 13px;">18 / 24 submitted</span>
+                            style="font-size:13px;padding:5px 13px;" id="admin-stat-checkins-badge">-- / -- submitted</span>
                     </div>
                     <div class="ci-list" id="admin-checkins"></div>
                 </div>
@@ -2804,91 +2641,23 @@
                     <div class="chart-row">
                         <div class="chart-box">
                             <div class="sec-title">Mood distribution (all time)</div>
-                            <div class="mini-bar-wrap">
-                                <div class="mb-row"><span class="nm">😄 Great</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:35%"></div>
-                                    </div><span class="mb-pct">35%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">🙂 Good</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:42%"></div>
-                                    </div><span class="mb-pct">42%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">😐 Okay</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:14%"></div>
-                                    </div><span class="mb-pct">14%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">😕 Low</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:7%"></div>
-                                    </div><span class="mb-pct">7%</span>
-                                </div>
-                                <div class="mb-row"><span class="nm">😞 Very Low</span>
-                                    <div class="mb-bg">
-                                        <div class="mb-fill" style="width:2%"></div>
-                                    </div><span class="mb-pct">2%</span>
-                                </div>
+                            <div class="mini-bar-wrap" id="admin-analytics-mood">
+                                <div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">Loading data...</div>
                             </div>
                         </div>
                         <div class="chart-box">
                             <div class="sec-title">Check-in rate (last 7 days)</div>
-                            <div class="mood-chart">
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:75%"></div>
-                                    <div class="mc-lbl">Mon</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:88%"></div>
-                                    <div class="mc-lbl">Tue</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:70%"></div>
-                                    <div class="mc-lbl">Wed</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:92%"></div>
-                                    <div class="mc-lbl">Thu</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:75%"></div>
-                                    <div class="mc-lbl">Fri</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:50%"></div>
-                                    <div class="mc-lbl">Sat</div>
-                                </div>
-                                <div class="mc-col">
-                                    <div class="mc-bar" style="height:45%"></div>
-                                    <div class="mc-lbl">Sun</div>
-                                </div>
+                            <div class="mood-chart" id="admin-analytics-cir">
+                            </div>
+                            <div id="admin-analytics-cir-lbls"
+                                style="display:flex;justify-content:space-around;font-size:9px;color:var(--nn-muted);margin-top:4px;">
                             </div>
                         </div>
                     </div>
                     <div class="chart-box" style="margin-bottom:20px;">
                         <div class="sec-title">Top performers this month</div>
-                        <div class="mini-bar-wrap">
-                            <div class="mb-row"><span class="nm">Sneha P.</span>
-                                <div class="mb-bg">
-                                    <div class="mb-fill" style="width:97%"></div>
-                                </div><span class="mb-pct">97%</span>
-                            </div>
-                            <div class="mb-row"><span class="nm">Arjun M.</span>
-                                <div class="mb-bg">
-                                    <div class="mb-fill" style="width:93%"></div>
-                                </div><span class="mb-pct">93%</span>
-                            </div>
-                            <div class="mb-row"><span class="nm">Kiran B.</span>
-                                <div class="mb-bg">
-                                    <div class="mb-fill" style="width:89%"></div>
-                                </div><span class="mb-pct">89%</span>
-                            </div>
-                            <div class="mb-row"><span class="nm">Ananya S.</span>
-                                <div class="mb-bg">
-                                    <div class="mb-fill" style="width:85%"></div>
-                                </div><span class="mb-pct">85%</span>
-                            </div>
+                        <div class="mini-bar-wrap" id="admin-analytics-top">
+                            <div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">Loading data...</div>
                         </div>
                     </div>
                 </div>
@@ -3007,6 +2776,16 @@
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.logo-circle img').forEach(img => img.src = LOGO);
             document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            
+            // Dynamic Greeting
+            const hr = new Date().getHours();
+            let greeting = 'Good evening';
+            if (hr < 12) greeting = 'Good morning';
+            else if (hr < 17) greeting = 'Good afternoon';
+            
+            const adminGreetEl = document.getElementById('admin-greeting-text');
+            if (adminGreetEl) adminGreetEl.textContent = greeting;
+
             // Init roadmap with existing in-memory data
             buildAdminRM();
             buildRMWeekTabs();
@@ -3014,6 +2793,7 @@
 
         // ── SUPABASE HELPERS ─────────────────────────────────
         async function loadAdminDashboard() {
+            let allCheckins = [];
             // 1. Load students
             const { data: profiles, error: profErr } = await _supabase
                 .from('profiles')
@@ -3023,10 +2803,11 @@
             if (!profErr && profiles) {
                 // Build STUDENTS_DATA by enriching with latest check-in stats
                 const today = new Date().toISOString().split('T')[0];
-                const { data: allCheckins } = await _supabase
+                const { data: fetchCheckins } = await _supabase
                     .from('checkins')
                     .select('*')
                     .order('created_at', { ascending: false });
+                if (fetchCheckins) allCheckins = fetchCheckins;
                 STUDENTS_DATA = profiles.map(p => {
                     const mine = allCheckins ? allCheckins.filter(c => c.student_id === p.id) : [];
                     const lastMood = mine.length ? mine[0].mood : 3;
@@ -3035,8 +2816,8 @@
                     // Compute streak
                     const dates = [...new Set(mine.map(c => c.created_at.split('T')[0]))].sort().reverse();
                     let streak = 0;
-                    const checkDate = d => { const dd = new Date(d); dd.setHours(0,0,0,0); return dd; };
-                    let prev = new Date(); prev.setHours(0,0,0,0);
+                    const checkDate = d => { const dd = new Date(d); dd.setHours(0, 0, 0, 0); return dd; };
+                    let prev = new Date(); prev.setHours(0, 0, 0, 0);
                     for (const d of dates) {
                         const cd = checkDate(d);
                         const diff = Math.round((prev - cd) / 86400000);
@@ -3049,10 +2830,28 @@
                     return { name: p.full_name, email: p.email, batch: p.batch || '', streak, mood: lastMoodN, goals: goalsHit, status, id: p.id };
                 });
                 buildStuTable(STUDENTS_DATA);
-                buildRMStatusTable();
             }
+            
+            // 1.5 Load all student roadmaps
+            const { data: allCustRM } = await _supabase
+                .from('student_roadmaps')
+                .select('*')
+                .order('id', { ascending: true });
+            
+            STUDENT_ROADMAPS = {};
+            if (allCustRM) {
+                allCustRM.forEach(r => {
+                    const sid = r.student_id;
+                    const wk = r.week_number || 1;
+                    if (!STUDENT_ROADMAPS[sid]) STUDENT_ROADMAPS[sid] = {};
+                    if (!STUDENT_ROADMAPS[sid][wk]) STUDENT_ROADMAPS[sid][wk] = [];
+                    STUDENT_ROADMAPS[sid][wk].push({ day: r.day_label, physics: r.physics, chemistry: r.chemistry, maths: r.maths });
+                });
+            }
+            buildRMStatusTable();
+
             // 2. Load today checkins
-            const todayStart = new Date(); todayStart.setHours(0,0,0,0);
+            const todayStart = new Date(); todayStart.setHours(0, 0, 0, 0);
             const { data: todayCI } = await _supabase
                 .from('checkins')
                 .select('*, profiles(full_name)')
@@ -3080,6 +2879,137 @@
                 });
                 buildAdminRM();
                 buildRMWeekTabs();
+                buildRMStatusTable();
+            }
+
+            // 4. Populate dynamic stats & charts
+            populateDynamicAdminStats(allCheckins);
+        }
+
+        function populateDynamicAdminStats(allCheckins) {
+            // Overview Top Cards
+            document.getElementById('admin-stat-total').textContent = STUDENTS_DATA.length;
+            document.getElementById('admin-stat-checkins').textContent = CHECKINS_TODAY.length;
+
+            // Today's Check-ins Tab Badge
+            const checkinsBadge = document.getElementById('admin-stat-checkins-badge');
+            if (checkinsBadge) checkinsBadge.textContent = `${CHECKINS_TODAY.length} / ${STUDENTS_DATA.length} submitted`;
+
+            if (CHECKINS_TODAY.length > 0) {
+                const totalMood = CHECKINS_TODAY.reduce((sum, c) => sum + c.mood, 0);
+                document.getElementById('admin-stat-mood').textContent = (totalMood / CHECKINS_TODAY.length).toFixed(1);
+                const hitGoals = CHECKINS_TODAY.filter(c => c.goals === 'Yes').length;
+                document.getElementById('admin-stat-goals').textContent = Math.round((hitGoals / CHECKINS_TODAY.length) * 100) + '%';
+            } else {
+                document.getElementById('admin-stat-mood').textContent = '--';
+                document.getElementById('admin-stat-goals').textContent = '--%';
+            }
+
+            // Alerts
+            const alertsCont = document.getElementById('admin-alerts-container');
+            const distressed = STUDENTS_DATA.filter(s => s.status === 'at-risk' || s.status === 'low-mood');
+            if (distressed.length === 0) {
+                alertsCont.innerHTML = `<div style="font-size:14px;color:#22c55e;margin-bottom:24px;background:rgba(34,197,94,0.1);padding:12px;border-radius:8px;">✅ All students are on track!</div>`;
+            } else {
+                alertsCont.innerHTML = distressed.map(s => {
+                    const initials = s.name.split(' ').map(w => w[0]).join('');
+                    const isRisk = s.status === 'at-risk';
+                    const cssClass = isRisk ? 'danger' : 'warn';
+                    const avBg = isRisk ? '' : 'style="background:var(--grad)"';
+                    const reason = isRisk ? `Missed check-ins. Streak: ${s.streak}` : `Mood: ${M_EMO[s.mood]} ${M_LBL[s.mood]} - Keep an eye on them.`;
+                    const badge = isRisk ? '<span class="badge badge-red">At Risk</span>' : '<span class="badge badge-amber">Low Mood</span>';
+                    return `<div class="alert-item ${cssClass}" style="margin-bottom:12px;">
+                        <div class="ci-av" ${avBg}>${initials}</div>
+                        <div class="ci-info">
+                            <div class="ci-name">${s.name}</div>
+                            <div class="ci-target">${reason}</div>
+                            <div class="ci-meta">${badge}</div>
+                        </div>
+                    </div>`;
+                }).join('') + '<div style="margin-bottom:24px;"></div>';
+            }
+
+            // Top Performers
+            const sortedByGoals = [...STUDENTS_DATA].sort((a, b) => b.goals - a.goals).slice(0, 4);
+            const tpCont = document.getElementById('admin-analytics-top');
+            if (sortedByGoals.length > 0) {
+                tpCont.innerHTML = sortedByGoals.map(s => `
+                    <div class="mb-row"><span class="nm">${s.name}</span>
+                        <div class="mb-bg"><div class="mb-fill" style="width:${s.goals}%"></div></div>
+                        <span class="mb-pct">${s.goals}%</span>
+                    </div>`).join('');
+            } else {
+                tpCont.innerHTML = '<div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">No active students yet.</div>';
+            }
+
+            // Mood Distribution (all time)
+            if (allCheckins && allCheckins.length > 0) {
+                const moodCounts = [0, 0, 0, 0, 0, 0]; // 1-5 index
+                allCheckins.forEach(c => { moodCounts[c.mood]++; });
+                const mdCont = document.getElementById('admin-analytics-mood');
+                mdCont.innerHTML = [5, 4, 3, 2, 1].map(m => {
+                    const pct = Math.round((moodCounts[m] / allCheckins.length) * 100);
+                    return `<div class="mb-row"><span class="nm">${M_EMO[m]} ${M_LBL[m]}</span>
+                        <div class="mb-bg"><div class="mb-fill" style="width:${pct}%"></div></div>
+                        <span class="mb-pct">${pct}%</span>
+                    </div>`;
+                }).join('');
+            } else {
+                document.getElementById('admin-analytics-mood').innerHTML = '<div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">Not enough check-in data.</div>';
+            }
+
+            // Process Last 7 Days for Charts
+            const past7 = [];
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date(); d.setDate(d.getDate() - i);
+                past7.push({ date: d.toISOString().split('T')[0], label: d.toLocaleDateString('en-GB', { weekday: 'short' }) });
+            }
+
+            // Check-in rates (Last 7 Days)
+            const cirCont = document.getElementById('admin-analytics-cir');
+            const cirLbls = document.getElementById('admin-analytics-cir-lbls');
+            if (allCheckins && STUDENTS_DATA.length > 0) {
+                cirCont.innerHTML = past7.map(d => {
+                    const hits = allCheckins.filter(c => c.created_at.startsWith(d.date)).length;
+                    const pct = Math.min(100, Math.round((hits / STUDENTS_DATA.length) * 100));
+                    return `<div class="mc-col"><div class="mc-bar" style="height:${pct}%"></div></div>`;
+                }).join('');
+                cirLbls.innerHTML = past7.map(d => `<div>${d.label}</div>`).join('');
+            } else {
+                cirCont.innerHTML = '<div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">Not enough data.</div>';
+                cirLbls.innerHTML = '';
+            }
+
+            // Goal completion this week (Overview Tab)
+            const wgCont = document.getElementById('admin-overview-goal-chart');
+            if (allCheckins && allCheckins.length > 0) {
+                wgCont.innerHTML = past7.slice(2).map(d => { // Last 5 days to fit small box
+                    const dayCis = allCheckins.filter(c => c.created_at.startsWith(d.date));
+                    const hit = dayCis.filter(c => c.goals === 'Yes').length;
+                    const pct = dayCis.length ? Math.round((hit / dayCis.length) * 100) : 0;
+                    return `<div class="mb-row"><span class="nm">${d.label}</span>
+                        <div class="mb-bg"><div class="mb-fill" style="width:${pct}%"></div></div>
+                        <span class="mb-pct">${pct}%</span>
+                    </div>`;
+                }).join('');
+            } else {
+                wgCont.innerHTML = '<div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">No check-in data yet.</div>';
+            }
+
+            // Average mood this week (Overview Tab)
+            const amCont = document.getElementById('admin-overview-mood-chart');
+            const amLbls = document.getElementById('admin-overview-mood-lbls');
+            if (allCheckins && allCheckins.length > 0) {
+                amCont.innerHTML = past7.slice(2).map(d => {
+                    const dayCis = allCheckins.filter(c => c.created_at.startsWith(d.date));
+                    const avg = dayCis.length ? (dayCis.reduce((s, c) => s + c.mood, 0) / dayCis.length) : 0;
+                    const pct = (avg / 5) * 100;
+                    return `<div class="mc-col"><div class="mc-bar" style="height:${pct}%"></div></div>`;
+                }).join('');
+                amLbls.innerHTML = past7.slice(2).map(d => `<div>${d.label}</div>`).join('');
+            } else {
+                amCont.innerHTML = '<div style="color:var(--nn-muted);font-size:13px;padding:10px 0;">No mood data yet.</div>';
+                amLbls.innerHTML = '';
             }
         }
 
@@ -3090,12 +3020,13 @@
                 .select('*')
                 .eq('student_id', userId)
                 .order('id', { ascending: true });
+            STUDENT_ROADMAPS[userId] = {};
             if (custRM && custRM.length) {
-                STUDENT_ROADMAPS[userId] = custRM.map(r => ({
-                    day: r.day_label, physics: r.physics, chemistry: r.chemistry, maths: r.maths
-                }));
-            } else {
-                STUDENT_ROADMAPS[userId] = null;
+                custRM.forEach(r => {
+                    const wk = r.week_number || 1;
+                    if (!STUDENT_ROADMAPS[userId][wk]) STUDENT_ROADMAPS[userId][wk] = [];
+                    STUDENT_ROADMAPS[userId][wk].push({ day: r.day_label, physics: r.physics, chemistry: r.chemistry, maths: r.maths });
+                });
             }
             // Load ideal roadmap if not already populated
             if (!Object.keys(IDEAL_ROADMAP.weeks).length || !IDEAL_ROADMAP.weeks[1]) {
@@ -3113,8 +3044,41 @@
                     });
                 }
             }
+            // Fetch student's overall check-ins for stats
+            const { data: allStudentCI } = await _supabase
+                .from('checkins')
+                .select('created_at, mood, goals')
+                .eq('student_id', userId)
+                .order('created_at', { ascending: false });
+
+            if (allStudentCI) {
+                const total = allStudentCI.length;
+                let streak = 0;
+                let goalsHit = 0;
+                let totalMood = 0;
+
+                const dates = [...new Set(allStudentCI.map(c => c.created_at.split('T')[0]))].sort().reverse();
+                const checkDate = d => { const dd = new Date(d); dd.setHours(0, 0, 0, 0); return dd; };
+                let prev = new Date(); prev.setHours(0, 0, 0, 0);
+                
+                for (const d of dates) {
+                    const cd = checkDate(d);
+                    const diff = Math.round((prev - cd) / 86400000);
+                    if (diff <= 1) { streak++; prev = cd; } else break;
+                }
+
+                allStudentCI.forEach(c => {
+                    totalMood += c.mood;
+                    if (c.goals === 'Yes') goalsHit++;
+                });
+
+                document.getElementById('stu-stat-streak').textContent = streak;
+                document.getElementById('stu-stat-goals').textContent = total > 0 ? Math.round((goalsHit / total) * 100) + '%' : '--%';
+                document.getElementById('stu-stat-mood').textContent = total > 0 ? (totalMood / total).toFixed(1) : '--';
+            }
+
             // Check if already checked in today
-            const todayStart = new Date(); todayStart.setHours(0,0,0,0);
+            const todayStart = new Date(); todayStart.setHours(0, 0, 0, 0);
             const { data: todayCI } = await _supabase
                 .from('checkins')
                 .select('id')
@@ -3158,6 +3122,7 @@
                 document.getElementById('stu-av').textContent = displayName.split(' ').map(w => w[0]).join('');
                 document.getElementById('stu-av').style.background = AVATAR_GRADIENTS[prof.avatar_gradient || 0];
                 await loadStudentData(userId);
+                buildStuRMWeekTabs();
                 renderStudentRM();
                 showPage('page-student');
             } else {
@@ -3227,10 +3192,29 @@
             el.classList.add('active');
         }
 
+        let currentStudentWeek = 1;
+        function buildStuRMWeekTabs() {
+            const tabs = document.getElementById('stu-rm-week-tabs');
+            if (tabs) {
+                const weeks = Object.keys(IDEAL_ROADMAP.weeks).map(Number);
+                if (weeks.length === 0) { tabs.innerHTML = ''; return; }
+                if (!weeks.includes(currentStudentWeek)) currentStudentWeek = Math.max(...weeks, 1);
+                
+                tabs.innerHTML = weeks.map(w => `<button class="rm-week-tab ${w == currentStudentWeek ? 'active' : ''}" onclick="selectStuRMWeek(${w},this)">Week ${w}</button>`).join('');
+            }
+        }
+        function selectStuRMWeek(w, el) {
+            currentStudentWeek = w;
+            document.querySelectorAll('#stu-rm-week-tabs .rm-week-tab').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            renderStudentRM();
+        }
+
         // ── STUDENTS TABLE ─────────────────────────────────────
         function buildStuTable(data) {
             document.getElementById('stu-tbody').innerHTML = data.map(s => {
-                const rmStatus = STUDENT_ROADMAPS[s.email] ? `<span class="rm-modified-badge">✏️ Modified</span>` : `<span class="rm-sent-badge">✅ Ideal</span>`;
+                const custom = STUDENT_ROADMAPS[s.id] && STUDENT_ROADMAPS[s.id][currentAdminWeek];
+                const rmStatus = custom ? `<span class="rm-modified-badge">✏️ Modified</span>` : `<span class="rm-sent-badge">✅ Ideal</span>`;
                 const stBadge = s.status === 'at-risk' ? `<span class="badge badge-red">At Risk</span>` : s.status === 'low-mood' ? `<span class="badge badge-amber">Low Mood</span>` : `<span class="badge badge-green">Active</span>`;
                 return `<tr>
       <td><strong>${s.name}</strong></td>
@@ -3242,7 +3226,7 @@
       <td>${stBadge}</td>
       <td style="display:flex;gap:6px;">
         <button class="btn btn-primary btn-sm" onclick="openStudentDrawer('${s.email}')">📊 Stats</button>
-        <button class="btn btn-ghost btn-sm" onclick="viewStudentRM('${s.email}','${s.name}')">🗺️ RM</button>
+        <button class="btn btn-ghost btn-sm" onclick="viewStudentRM('${s.id}','${s.name}')">🗺️ RM</button>
       </td>
     </tr>`;
             }).join('');
@@ -3256,19 +3240,44 @@
             tabs.innerHTML = Object.keys(IDEAL_ROADMAP.weeks).map(w => `<button class="rm-week-tab ${w == currentAdminWeek ? 'active' : ''}" onclick="selectRMWeek(${w},this)">Week ${w}</button>`).join('');
             tabs.innerHTML += `<button class="rm-week-tab" onclick="addRMWeek(this)">+ New Week</button>`;
         }
-        function selectRMWeek(w, el) { currentAdminWeek = w; document.querySelectorAll('.rm-week-tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); buildAdminRM(); }
+        function selectRMWeek(w, el) { currentAdminWeek = w; document.querySelectorAll('.rm-week-tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); buildAdminRM(); buildRMStatusTable(); }
         function addRMWeek(el) {
-            const newW = Math.max(...Object.keys(IDEAL_ROADMAP.weeks).map(Number)) + 1;
-            IDEAL_ROADMAP.weeks[newW] = [{ day: 'Monday', physics: '', chemistry: '', maths: '' }, { day: 'Tuesday', physics: '', chemistry: '', maths: '' }, { day: 'Wednesday', physics: '', chemistry: '', maths: '' }, { day: 'Thursday', physics: '', chemistry: '', maths: '' }, { day: 'Friday', physics: '', chemistry: '', maths: '' }, { day: 'Saturday', physics: 'BUFFER', chemistry: 'BUFFER', maths: 'BUFFER' }, { day: 'Sunday', physics: 'BUFFER', chemistry: 'BUFFER', maths: 'BUFFER' }];
-            currentAdminWeek = newW; buildRMWeekTabs(); buildAdminRM();
+            const weekKeys = Object.keys(IDEAL_ROADMAP.weeks).map(Number);
+            const newW = weekKeys.length ? Math.max(...weekKeys) + 1 : 1;
+            
+            // Generate dates for current week
+            const curr = new Date();
+            const dayOfWeek = curr.getDay() === 0 ? 6 : curr.getDay() - 1; // 0 for Mon, 6 for Sun
+            const monday = new Date(curr);
+            monday.setDate(curr.getDate() - dayOfWeek);
+
+            const days = [];
+            for (let i = 0; i < 7; i++) {
+                const d = new Date(monday);
+                d.setDate(monday.getDate() + i);
+                const dayName = d.toLocaleDateString('en-IN', { weekday: 'long' });
+                const dayDate = d.getDate();
+                const monthName = d.toLocaleDateString('en-IN', { month: 'long' });
+                const suffix = (dayDate % 10 === 1 && dayDate !== 11) ? 'st' : (dayDate % 10 === 2 && dayDate !== 12) ? 'nd' : (dayDate % 10 === 3 && dayDate !== 13) ? 'rd' : 'th';
+                days.push(`${dayName}, ${dayDate}${suffix} ${monthName}`);
+            }
+
+            IDEAL_ROADMAP.weeks[newW] = [
+                { day: days[0], physics: '', chemistry: '', maths: '' },
+                { day: days[1], physics: '', chemistry: '', maths: '' },
+                { day: days[2], physics: '', chemistry: '', maths: '' },
+                { day: days[3], physics: '', chemistry: '', maths: '' },
+                { day: days[4], physics: '', chemistry: '', maths: '' },
+                { day: days[5], physics: 'BUFFER', chemistry: 'BUFFER', maths: 'BUFFER' },
+                { day: days[6], physics: 'BUFFER', chemistry: 'BUFFER', maths: 'BUFFER' }
+            ];
+            currentAdminWeek = newW; buildRMWeekTabs(); buildAdminRM(); buildRMStatusTable();
         }
 
         function buildAdminRM() {
             const rows = IDEAL_ROADMAP.weeks[currentAdminWeek] || [];
             document.getElementById('rm-week-title').value = IDEAL_ROADMAP.title;
             document.getElementById('rm-admin-tbody').innerHTML = rows.map((r, i) => {
-                const isBuffer = r.physics === 'BUFFER';
-                if (isBuffer) return `<tr><td class="rm-day-label">${r.day}</td><td colspan="3"><span class="rm-buffer">BUFFER</span></td></tr>`;
                 return `<tr>
       <td><input class="rm-input" value="${r.day}" onchange="updateRMCell(${i},'day',this.value)" style="min-width:130px;"></td>
       <td><input class="rm-input" value="${r.physics}" onchange="updateRMCell(${i},'physics',this.value)"></td>
@@ -3283,26 +3292,46 @@
             IDEAL_ROADMAP.weeks[currentAdminWeek].push({ day: 'New Day', physics: '', chemistry: '', maths: '' });
             buildAdminRM();
         }
-        function saveIdealRM() {
-            IDEAL_ROADMAP.title = document.getElementById('rm-week-title').value;
+        async function saveIdealRM() {
+            IDEAL_ROADMAP.title = document.getElementById('rm-week-title').value || "Roadmap";
+            const weekData = IDEAL_ROADMAP.weeks[currentAdminWeek];
+            if (weekData) {
+                const btn = document.querySelector('#tab-roadmap .btn-primary');
+                const originalText = btn.textContent;
+                btn.textContent = 'Saving...';
+                
+                await _supabase.from('roadmaps').delete().eq('week_number', currentAdminWeek);
+                
+                const inserts = weekData.map(r => ({
+                    week_number: currentAdminWeek,
+                    day_label: r.day,
+                    physics: r.physics,
+                    chemistry: r.chemistry,
+                    maths: r.maths,
+                    title: IDEAL_ROADMAP.title
+                }));
+                const { error } = await _supabase.from('roadmaps').insert(inserts);
+                if (error) { alert('Error saving roadmap: ' + error.message); btn.textContent = originalText; return; }
+                btn.textContent = originalText;
+            }
+
             buildRMWeekTabs(); buildRMStatusTable();
             alert('✅ Roadmap published to all students! They will see it on their next login.');
         }
 
         function buildRMStatusTable() {
             document.getElementById('rm-status-tbody').innerHTML = STUDENTS_DATA.map(s => {
-                const custom = STUDENT_ROADMAPS[s.email];
+                const custom = STUDENT_ROADMAPS[s.id] && STUDENT_ROADMAPS[s.id][currentAdminWeek];
                 const status = custom ? `<span class="rm-modified-badge">✏️ Customised by student</span>` : `<span class="rm-sent-badge">✅ Using ideal roadmap</span>`;
-                return `<tr><td><strong>${s.name}</strong></td><td>${status}</td><td>${custom ? 'Today' : '—'}</td><td><button class="btn btn-ghost btn-sm" onclick="viewStudentRM('${s.email}','${s.name}')">View</button></td></tr>`;
+                return `<tr><td><strong>${s.name}</strong></td><td>${status}</td><td>${custom ? 'Week target' : '—'}</td><td><button class="btn btn-ghost btn-sm" onclick="viewStudentRM('${s.id}','${s.name}')">View</button></td></tr>`;
             }).join('');
         }
 
-        function viewStudentRM(email, name) {
-            const custom = STUDENT_ROADMAPS[email];
-            const rows = custom || IDEAL_ROADMAP.weeks[1];
-            document.getElementById('rm-viewer-title').textContent = custom ? `${name}'s Custom Roadmap` : `${name} — Using Ideal Roadmap`;
+        function viewStudentRM(studentId, name) {
+            const custom = STUDENT_ROADMAPS[studentId] && STUDENT_ROADMAPS[studentId][currentAdminWeek];
+            const rows = custom || IDEAL_ROADMAP.weeks[currentAdminWeek] || [];
+            document.getElementById('rm-viewer-title').textContent = custom ? `${name}'s Custom Roadmap (Week ${currentAdminWeek})` : `${name} — Using Ideal Roadmap (Week ${currentAdminWeek})`;
             document.getElementById('rm-viewer-tbody').innerHTML = rows.map(r => {
-                if (r.physics === 'BUFFER') return `<tr><td class="rm-day-label">${r.day}</td><td colspan="3"><span class="rm-buffer">BUFFER</span></td></tr>`;
                 return `<tr><td class="rm-day-label">${r.day}</td><td>${r.physics}</td><td>${r.chemistry}</td><td>${r.maths}</td></tr>`;
             }).join('');
             document.getElementById('rm-student-viewer').style.display = 'block';
@@ -3313,16 +3342,15 @@
 
         // ── STUDENT ROADMAP ─────────────────────────────────────
         function renderStudentRM() {
-            const email = currentUser;
-            const customRM = STUDENT_ROADMAPS[email];
-            const rows = customRM || IDEAL_ROADMAP.weeks[1];
+            const userId = currentUser;
+            const customRM = STUDENT_ROADMAPS[userId] ? STUDENT_ROADMAPS[userId][currentStudentWeek] : null;
+            const rows = customRM || IDEAL_ROADMAP.weeks[currentStudentWeek] || [];
             const isCustom = !!customRM;
-            document.getElementById('rm-stu-title-label').textContent = IDEAL_ROADMAP.title;
+            document.getElementById('rm-stu-title-label').textContent = IDEAL_ROADMAP.title || "Roadmap";
             const badge = document.getElementById('rm-mode-badge');
             badge.textContent = isCustom ? '✏️ Your Custom Roadmap' : '📋 Ideal Roadmap';
             badge.className = 'rm-mode-badge ' + (isCustom ? 'mode-custom' : 'mode-ideal');
             document.getElementById('rm-stu-tbody').innerHTML = rows.map((r, i) => {
-                if (r.physics === 'BUFFER') return `<tr><td class="rm-day-label" style="font-size:12px;">${r.day}</td><td colspan="3"><span class="rm-buffer">BUFFER</span></td></tr>`;
                 if (studentRMMode === 'edit') {
                     return `<tr>
         <td><input class="rm-edit-input" value="${r.day}" onchange="updateStuRM(${i},'day',this.value)" style="min-width:110px;"></td>
@@ -3340,16 +3368,17 @@
             if (studentRMMode === 'ideal' || studentRMMode === 'view') {
                 studentRMMode = 'edit';
                 // copy current RM for editing
-                const src = STUDENT_ROADMAPS[currentUser] || IDEAL_ROADMAP.weeks[1];
+                const src = (STUDENT_ROADMAPS[currentUser] && STUDENT_ROADMAPS[currentUser][currentStudentWeek]) || IDEAL_ROADMAP.weeks[currentStudentWeek] || [];
                 tempStuRM = JSON.parse(JSON.stringify(src));
-                STUDENT_ROADMAPS[currentUser] = tempStuRM;
+                if (!STUDENT_ROADMAPS[currentUser]) STUDENT_ROADMAPS[currentUser] = {};
+                STUDENT_ROADMAPS[currentUser][currentStudentWeek] = tempStuRM;
                 document.getElementById('rm-edit-btn').textContent = '✏️ Editing…';
                 document.getElementById('rm-save-btn').style.display = '';
                 document.getElementById('rm-reset-btn').style.display = '';
             }
             renderStudentRM();
         }
-        function updateStuRM(i, col, val) { if (STUDENT_ROADMAPS[currentUser] && STUDENT_ROADMAPS[currentUser][i]) STUDENT_ROADMAPS[currentUser][i][col] = val; }
+        function updateStuRM(i, col, val) { if (STUDENT_ROADMAPS[currentUser] && STUDENT_ROADMAPS[currentUser][currentStudentWeek] && STUDENT_ROADMAPS[currentUser][currentStudentWeek][i]) STUDENT_ROADMAPS[currentUser][currentStudentWeek][i][col] = val; }
         async function saveRMEdits() {
             studentRMMode = 'view';
             document.getElementById('rm-edit-btn').textContent = '✏️ Customise';
@@ -3357,14 +3386,14 @@
             document.getElementById('rm-reset-btn').style.display = 'none';
             renderStudentRM();
             // Persist to Supabase
-            const rows = STUDENT_ROADMAPS[currentUser];
+            const rows = STUDENT_ROADMAPS[currentUser][currentStudentWeek];
             if (rows) {
                 // Delete old entries first
-                await _supabase.from('student_roadmaps').delete().eq('student_id', currentUser);
+                await _supabase.from('student_roadmaps').delete().eq('student_id', currentUser).eq('week_number', currentStudentWeek);
                 // Insert fresh rows
                 const inserts = rows.map((r, i) => ({
                     student_id: currentUser,
-                    week_number: 1,
+                    week_number: currentStudentWeek,
                     day_label: r.day,
                     physics: r.physics,
                     chemistry: r.chemistry,
@@ -3380,9 +3409,12 @@
         }
         async function resetRM() {
             if (currentUser) {
-                await _supabase.from('student_roadmaps').delete().eq('student_id', currentUser);
+                await _supabase.from('student_roadmaps').delete().eq('student_id', currentUser).eq('week_number', currentStudentWeek);
             }
-            STUDENT_ROADMAPS[currentUser] = null;
+            if (STUDENT_ROADMAPS[currentUser]) {
+                delete STUDENT_ROADMAPS[currentUser][currentStudentWeek];
+                if (Object.keys(STUDENT_ROADMAPS[currentUser]).length === 0) STUDENT_ROADMAPS[currentUser] = null;
+            }
             studentRMMode = 'ideal';
             document.getElementById('rm-edit-btn').textContent = '✏️ Customise';
             document.getElementById('rm-save-btn').style.display = 'none';
@@ -3436,21 +3468,21 @@
             // Streak
             const dates = [...new Set(all.map(c => c.created_at.split('T')[0]))].sort().reverse();
             let streak = 0, longestStreak = 0, run = 0;
-            let prev = new Date(); prev.setHours(0,0,0,0);
+            let prev = new Date(); prev.setHours(0, 0, 0, 0);
             for (const d of dates) {
-                const cd = new Date(d); cd.setHours(0,0,0,0);
+                const cd = new Date(d); cd.setHours(0, 0, 0, 0);
                 const diff = Math.round((prev - cd) / 86400000);
                 if (diff <= 1) { streak++; run++; longestStreak = Math.max(longestStreak, run); prev = cd; } else { run = 1; prev = cd; }
             }
             // Checkin calendar (last 28 days as 0/1)
             const checkinSet = new Set(all.map(c => c.created_at.split('T')[0]));
-            const checkinDays = Array.from({length: 28}, (_, i) => {
+            const checkinDays = Array.from({ length: 28 }, (_, i) => {
                 const d = new Date(); d.setDate(d.getDate() - (27 - i)); return checkinSet.has(d.toISOString().split('T')[0]) ? 1 : 0;
             });
             // Weekly goals (last 4 weeks + this week)
-            const weeklyGoals = [1,2,3,4,5].map(w => {
-                const end = new Date(); end.setDate(end.getDate() - (w-1)*7); end.setHours(23,59,59,999);
-                const start = new Date(end); start.setDate(start.getDate() - 6); start.setHours(0,0,0,0);
+            const weeklyGoals = [1, 2, 3, 4, 5].map(w => {
+                const end = new Date(); end.setDate(end.getDate() - (w - 1) * 7); end.setHours(23, 59, 59, 999);
+                const start = new Date(end); start.setDate(start.getDate() - 6); start.setHours(0, 0, 0, 0);
                 const wk = all.filter(c => { const cd = new Date(c.created_at); return cd >= start && cd <= end; });
                 if (!wk.length) return 0;
                 return Math.round(wk.filter(c => c.goals === 'Yes').length / wk.length * 100);
