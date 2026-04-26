@@ -2213,8 +2213,6 @@
             <div id="l-err" class="err-msg">Invalid credentials. Please try again.</div>
             <button class="btn btn-primary" style="width:100%;font-size:15px;padding:13px;" onclick="doLogin()">Sign
                 In</button>
-            <p style="text-align:center;margin-top:14px;font-size:12px;color:var(--nn-muted);">Demo → Student:
-                student@nn.com / 1234 &nbsp;|&nbsp; Admin: admin@nn.com / admin123</p>
         </div>
     </div>
 
@@ -2371,15 +2369,7 @@
                 <div class="big">🎉</div>
                 <h3>Check-in submitted!</h3>
                 <p>Your mentor can now see your progress. Come back tomorrow to keep your streak alive!</p>
-                <div class="streak-bar">
-                    <span style="font-size:12px;color:var(--nn-muted);margin-right:6px;">This week:</span>
-                    <div class="sd done">M</div>
-                    <div class="sd done">T</div>
-                    <div class="sd done">W</div>
-                    <div class="sd done">T</div>
-                    <div class="sd today">F</div>
-                    <div class="sd miss">S</div>
-                    <div class="sd miss">S</div>
+                <div class="streak-bar" id="done-banner-streak">
                 </div>
             </div>
 
@@ -3086,6 +3076,7 @@
                 .gte('created_at', todayStart.toISOString());
             if (todayCI && todayCI.length > 0) {
                 document.getElementById('checkin-card').style.display = 'none';
+                await updateDoneBannerStreak();
                 document.getElementById('done-banner').style.display = 'block';
             }
         }
@@ -3144,6 +3135,34 @@
         }
 
         // ── CHECK-IN ───────────────────────────────────────────
+        async function updateDoneBannerStreak() {
+            const container = document.getElementById('done-banner-streak');
+            if (!container) return;
+            
+            const curr = new Date();
+            const dayOfWeek = curr.getDay() === 0 ? 6 : curr.getDay() - 1; // 0 for Mon, 6 for Sun
+            const startOfWeek = new Date(curr);
+            startOfWeek.setDate(curr.getDate() - dayOfWeek);
+            startOfWeek.setHours(0, 0, 0, 0);
+
+            const { data: weekCI } = await _supabase
+                .from('checkins')
+                .select('created_at')
+                .eq('student_id', currentUser)
+                .gte('created_at', startOfWeek.toISOString());
+
+            const checkinDays = new Set((weekCI || []).map(c => {
+                const d = new Date(c.created_at);
+                return d.getDay() === 0 ? 6 : d.getDay() - 1;
+            }));
+
+            const labels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+            container.innerHTML = '<span style="font-size:12px;color:var(--nn-muted);margin-right:6px;">This week:</span>' + labels.map((lbl, i) => {
+                const cssClass = checkinDays.has(i) ? 'sd done' : (dayOfWeek === i ? 'sd today' : 'sd miss');
+                return `<div class="${cssClass}">${lbl}</div>`;
+            }).join('');
+        }
+
         function pickMood(btn, val) {
             document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected'); currentMood = val;
@@ -3181,6 +3200,7 @@
             });
             if (error) { alert('Error saving check-in: ' + error.message); return; }
             document.getElementById('checkin-card').style.display = 'none';
+            await updateDoneBannerStreak();
             document.getElementById('done-banner').style.display = 'block';
         }
 
@@ -3274,12 +3294,36 @@
             currentAdminWeek = newW; buildRMWeekTabs(); buildAdminRM(); buildRMStatusTable();
         }
 
+        function handleDatePick(val, isAdmin, i) {
+            const d = new Date(val);
+            if (isNaN(d)) return;
+            const dayName = d.toLocaleDateString('en-IN', { weekday: 'long' });
+            const dayDate = d.getDate();
+            const monthName = d.toLocaleDateString('en-IN', { month: 'long' });
+            const suffix = (dayDate % 10 === 1 && dayDate !== 11) ? 'st' : (dayDate % 10 === 2 && dayDate !== 12) ? 'nd' : (dayDate % 10 === 3 && dayDate !== 13) ? 'rd' : 'th';
+            const str = `${dayName}, ${dayDate}${suffix} ${monthName}`;
+            
+            if (isAdmin) {
+                document.getElementById(`admin-day-input-${i}`).value = str;
+                updateRMCell(i, 'day', str);
+            } else {
+                document.getElementById(`stu-day-input-${i}`).value = str;
+                updateStuRM(i, 'day', str);
+            }
+        }
+
         function buildAdminRM() {
             const rows = IDEAL_ROADMAP.weeks[currentAdminWeek] || [];
             document.getElementById('rm-week-title').value = IDEAL_ROADMAP.title;
             document.getElementById('rm-admin-tbody').innerHTML = rows.map((r, i) => {
                 return `<tr>
-      <td><input class="rm-input" value="${r.day}" onchange="updateRMCell(${i},'day',this.value)" style="min-width:130px;"></td>
+      <td>
+        <div style="display:flex; align-items:center; gap:4px; position:relative;">
+          <input class="rm-input" id="admin-day-input-${i}" value="${r.day}" onchange="updateRMCell(${i},'day',this.value)" style="min-width:130px; flex:1;">
+          <input type="date" title="Pick date" onchange="handleDatePick(this.value, true, ${i})" style="position:absolute; right:5px; opacity:0; width:20px; cursor:pointer;" />
+          <span style="pointer-events:none; right:8px; position:absolute; font-size:14px;">📅</span>
+        </div>
+      </td>
       <td><input class="rm-input" value="${r.physics}" onchange="updateRMCell(${i},'physics',this.value)"></td>
       <td><input class="rm-input" value="${r.chemistry}" onchange="updateRMCell(${i},'chemistry',this.value)"></td>
       <td><input class="rm-input" value="${r.maths}" onchange="updateRMCell(${i},'maths',this.value)"></td>
@@ -3353,7 +3397,13 @@
             document.getElementById('rm-stu-tbody').innerHTML = rows.map((r, i) => {
                 if (studentRMMode === 'edit') {
                     return `<tr>
-        <td><input class="rm-edit-input" value="${r.day}" onchange="updateStuRM(${i},'day',this.value)" style="min-width:110px;"></td>
+        <td>
+          <div style="display:flex; align-items:center; gap:4px; position:relative;">
+            <input class="rm-edit-input" id="stu-day-input-${i}" value="${r.day}" onchange="updateStuRM(${i},'day',this.value)" style="min-width:110px; flex:1;">
+            <input type="date" title="Pick date" onchange="handleDatePick(this.value, false, ${i})" style="position:absolute; right:5px; opacity:0; width:20px; cursor:pointer;" />
+            <span style="pointer-events:none; right:8px; position:absolute; font-size:14px;">📅</span>
+          </div>
+        </td>
         <td><input class="rm-edit-input" value="${r.physics}" onchange="updateStuRM(${i},'physics',this.value)"></td>
         <td><input class="rm-edit-input" value="${r.chemistry}" onchange="updateStuRM(${i},'chemistry',this.value)"></td>
         <td><input class="rm-edit-input" value="${r.maths}" onchange="updateStuRM(${i},'maths',this.value)"></td>
