@@ -1817,13 +1817,7 @@
         /* ══════════════════════════════════════
    STUDENT ROADMAP VIEW
 ══════════════════════════════════════ */
-        .rm-student-wrap {
-            background: var(--nn-card);
-            border: 1px solid var(--nn-border);
-            border-radius: 18px;
-            overflow: hidden;
-            margin-bottom: 22px;
-        }
+
 
         .rm-stu-hdr {
             padding: 18px 22px;
@@ -2025,7 +2019,208 @@
         .profile-bio {
             min-height: 50px;
         }
+
+        /* ══════════════════════════════════════
+   PERSISTENT BACKLOGS & TRACKER STYLES
+   ══════════════════════════════════════ */
+        .backlogs-wrap {
+            background: var(--nn-card);
+            border: 1px solid var(--nn-border);
+            border-radius: 18px;
+            overflow: hidden;
+            margin-top: 22px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 24px rgba(123, 53, 255, 0.05);
+            animation: fadeSlideUp .4s ease;
+        }
+
+        .backlogs-hdr {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--nn-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .backlogs-hdr h2 {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .backlog-count-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 11px;
+            border-radius: 99px;
+            background: rgba(123, 53, 255, 0.18);
+            color: #b89aff;
+            border: 1px solid rgba(123, 53, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .backlog-count-badge.clear {
+            background: rgba(34, 197, 94, 0.13);
+            color: #4ade80;
+            border-color: rgba(34, 197, 94, 0.25);
+        }
+
+        .backlogs-body {
+            padding: 10px 22px 22px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .backlogs-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .backlogs-body::-webkit-scrollbar-thumb {
+            background: rgba(123, 53, 255, 0.25);
+            border-radius: 4px;
+        }
+
+        .backlog-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .backlog-item:last-child {
+            border-bottom: none;
+        }
+
+        .backlog-check {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 2px solid var(--nn-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: transparent;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .backlog-check:hover {
+            border-color: var(--nn-purple);
+            background: rgba(123, 53, 255, 0.1);
+        }
+
+        .backlog-check.checked {
+            border-color: #22c55e;
+            background: #22c55e;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+        }
+
+        .backlog-text {
+            flex: 1;
+        }
+
+        .backlog-desc {
+            font-size: 13.5px;
+            color: var(--nn-text);
+            line-height: 1.5;
+            transition: all 0.25s ease;
+        }
+
+        .backlog-item.resolved .backlog-desc {
+            text-decoration: line-through;
+            color: var(--nn-muted);
+            opacity: 0.7;
+        }
+
+        .backlog-date {
+            font-size: 11px;
+            color: var(--nn-muted);
+            margin-top: 4px;
+        }
+
+        .backlog-empty {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--nn-muted);
+            font-size: 13.5px;
+        }
+
+        .backlog-empty .big-ico {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        /* Yes/No Button Row Styles */
+        .yn-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .yn-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--nn-border);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--nn-text);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            outline: none;
+        }
+
+        .yn-btn:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--nn-purple);
+            transform: translateY(-1px);
+        }
+
+        .yn-btn.selected {
+            background: var(--grad);
+            border-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(123, 53, 255, 0.35);
+        }
+
+        /* MCQs Input Wrap */
+        .num-input-wrap {
+            margin-top: 8px;
+            position: relative;
+        }
+
+        .num-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--nn-border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: var(--nn-text);
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .num-input:focus {
+            border-color: var(--nn-purple);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 3px rgba(123, 53, 255, 0.15);
+        }
     </style>
+
 </head>
 
 <body>
@@ -2089,14 +2284,7 @@
             }
         };
 
-        // ROADMAP DATA
-        const IDEAL_ROADMAP = {
-            title: "Weekly Road Map",
-            weeks: {}
-        };
 
-        // Student roadmaps store
-        let STUDENT_ROADMAPS = {};
 
 
 
@@ -2114,8 +2302,7 @@
         let currentMood = null;
         let currentGoal = null;
         let modalType = 'student';
-        let currentAdminWeek = 1;
-        let studentRMMode = 'ideal'; // 'ideal' or 'edit'
+
 
         // ── STUDENT PROFILE DATA ──────────────────────────────
         const AVATAR_GRADIENTS = [
@@ -2155,7 +2342,7 @@
         <section class="hero">
             <div class="hero-badge">MHT-CET 2026 · Board · JEE · NEET Mentorship</div>
             <h1>Track. Reflect.<br><span class="grad-text">Grow Every Day.</span></h1>
-            <p>NeuroNest gives your mentor live visibility into your mood, daily goals and weekly roadmap — so you never
+            <p>NeuroNest gives your mentor live visibility into your mood, daily goals and backlogs — so you never
                 study alone.</p>
             <div class="hero-btns">
                 <button class="btn btn-primary" style="font-size:16px;padding:14px 34px;"
@@ -2165,16 +2352,12 @@
         </section>
 
         <div class="features">
-            <div class="feat">
-                <div class="feat-icon">🗺️</div>
-                <h3>Weekly Roadmaps</h3>
-                <p>Admins publish ideal study roadmaps. Students can follow as-is or customize — all edits are visible
-                    to the mentor.</p>
-            </div>
+
             <div class="feat">
                 <div class="feat-icon">📋</div>
                 <h3>Daily Check-ins</h3>
-                <p>3 guided questions on goals, mood and chapter completion — every day keeps your mentor informed.</p>
+                <p>7 guided questions on goals, mood, lectures, homework and backlogs — every day keeps your mentor
+                    informed.</p>
             </div>
             <div class="feat">
                 <div class="feat-icon">🧠</div>
@@ -2185,7 +2368,7 @@
             <div class="feat">
                 <div class="feat-icon">📊</div>
                 <h3>Admin Analytics</h3>
-                <p>Completion rates, mood trends, at-risk alerts and student roadmap modifications — all in one
+                <p>Completion rates, mood trends, and at-risk alerts — all in one
                     dashboard.</p>
             </div>
         </div>
@@ -2351,7 +2534,34 @@
                                 <button class="goal-btn" onclick="pickGoal(this,'no')">❌ No</button>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-top:18px;">
+                            <div class="q-label"><span class="q-num">4</span>Have you attended the lectures?</div>
+                            <div class="yn-row">
+                                <button class="yn-btn" onclick="pickLectures(this,'yes')">Yes</button>
+                                <button class="yn-btn" onclick="pickLectures(this,'no')">No</button>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top:18px;">
+                            <div class="q-label"><span class="q-num">5</span>Is the homework completed?</div>
+                            <div class="yn-row">
+                                <button class="yn-btn" onclick="pickHomework(this,'yes')">Yes</button>
+                                <button class="yn-btn" onclick="pickHomework(this,'no')">No</button>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top:18px;">
+                            <div class="q-label"><span class="q-num">6</span>How many MCQs solved today?</div>
+                            <div class="num-input-wrap">
+                                <input type="number" id="q-mcqs" class="num-input" placeholder="0" min="0">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top:18px;">
+                            <div class="q-label"><span class="q-num">7</span>What are the backlogs you encountered today
+                                while studying?</div>
+                            <textarea id="q-backlogs"
+                                placeholder="List any topics or subjects you fell behind on today…"
+                                style="min-height:55px;"></textarea>
+                        </div>
+                        <div class="form-group" style="margin-top:18px;">
                             <div class="q-label" style="margin-bottom:6px;">Any blockers or notes? <span
                                     style="font-weight:400;color:var(--nn-muted);text-transform:none;">(optional)</span>
                             </div>
@@ -2373,39 +2583,14 @@
                 </div>
             </div>
 
-            <!-- STUDENT ROADMAP -->
-            <div class="rm-student-wrap">
-                <div class="rm-stu-hdr">
-                    <div>
-                        <h2>📅 My Weekly Roadmap</h2>
-                        <p style="font-size:12px;color:var(--nn-muted);margin-top:3px;" id="rm-stu-title-label"></p>
-                    </div>
-                    <div style="display:flex;gap:8px;align-items:center;">
-                        <span class="rm-mode-badge mode-ideal" id="rm-mode-badge">Ideal Roadmap</span>
-                        <button class="btn btn-ghost btn-sm" id="rm-edit-btn" onclick="toggleRMEdit()">✏️
-                            Customise</button>
-                        <button class="btn btn-primary btn-sm" id="rm-save-btn" style="display:none;"
-                            onclick="saveRMEdits()">💾 Save</button>
-                        <button class="btn btn-ghost btn-sm" id="rm-reset-btn" style="display:none;"
-                            onclick="resetRM()">↩ Use Ideal</button>
-                    </div>
+            <!-- STUDENT BACKLOGS -->
+            <div class="backlogs-wrap" id="backlogs-wrap">
+                <div class="backlogs-hdr">
+                    <h2>📚 My Backlogs</h2>
+                    <span id="backlog-count" class="backlog-count-badge">0 Active</span>
                 </div>
-                <div class="rm-stu-body">
-                    <div class="rm-week-tabs" id="stu-rm-week-tabs" style="margin-bottom: 14px;"></div>
-                    <table class="rm-stu-table" id="rm-stu-table">
-                        <thead>
-                            <tr>
-                                <th>Day</th>
-                                <th>⚡ Physics</th>
-                                <th>🧪 Chemistry</th>
-                                <th>📐 Maths</th>
-                            </tr>
-                        </thead>
-                        <tbody id="rm-stu-tbody"></tbody>
-                    </table>
-                    <div style="margin-top:14px;font-size:12px;color:var(--nn-muted);">
-                        💡 You can follow this ideal roadmap or customise it to match your own pace.
-                    </div>
+                <div class="backlogs-body" id="backlog-list">
+                    <!-- Rendered dynamically -->
                 </div>
             </div>
         </div>
@@ -2434,7 +2619,7 @@
                 <div class="sidebar-lbl">Menu</div>
                 <div class="sitem active" onclick="aTab('overview',this)">📊 Overview</div>
                 <div class="sitem" onclick="aTab('students',this)">👥 Students</div>
-                <div class="sitem" onclick="aTab('roadmap',this)">🗺️ Roadmaps</div>
+
                 <div class="sitem" onclick="aTab('checkins',this)">📋 Today's Check-ins</div>
                 <div class="sitem" onclick="aTab('analytics',this)">📈 Analytics</div>
             </aside>
@@ -2444,7 +2629,8 @@
                 <!-- OVERVIEW -->
                 <div id="tab-overview" class="tab-panel active">
                     <div class="admin-top">
-                        <h1><span id="admin-greeting-text">Good morning</span>, <span class="grad-text">Admin 👋</span></h1>
+                        <h1><span id="admin-greeting-text">Good morning</span>, <span class="grad-text">Admin 👋</span>
+                        </h1>
                     </div>
                     <div class="stat-row">
                         <div class="scard">
@@ -2531,7 +2717,7 @@
                                     <th>Streak</th>
                                     <th>Last Mood</th>
                                     <th>Goals</th>
-                                    <th>Roadmap</th>
+
                                     <th>Status</th>
                                     <th></th>
                                 </tr>
@@ -2541,84 +2727,14 @@
                     </div>
                 </div>
 
-                <!-- ROADMAP ADMIN -->
-                <div id="tab-roadmap" class="tab-panel">
-                    <div class="admin-top">
-                        <h1>🗺️ Weekly Roadmaps</h1>
-                        <button class="btn btn-primary btn-sm" onclick="saveIdealRM()">📤 Publish to All
-                            Students</button>
-                    </div>
-                    <p style="color:var(--nn-muted);font-size:13px;margin-bottom:20px;">Create the ideal weekly roadmap.
-                        Students will receive it and can optionally customise their own version.</p>
 
-                    <div class="rm-week-tabs" id="rm-week-tabs"></div>
-
-                    <div id="rm-admin-panel">
-                        <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px;">
-                            <input type="text" id="rm-week-title"
-                                placeholder="Week title e.g. 2nd Week Road Map (MHT-CET 2026 1st Attempt)"
-                                style="flex:1;font-size:13px;">
-                        </div>
-                        <div class="rm-table-wrap">
-                            <table class="rm-table">
-                                <thead>
-                                    <tr>
-                                        <th>Day</th>
-                                        <th>⚡ Physics</th>
-                                        <th>🧪 Chemistry</th>
-                                        <th>📐 Maths</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="rm-admin-tbody"></tbody>
-                            </table>
-                        </div>
-                        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                            <button class="btn btn-ghost btn-sm" onclick="addRMRow()">+ Add Day</button>
-                            <button class="btn btn-primary btn-sm" onclick="saveIdealRM()">📤 Publish Roadmap</button>
-                        </div>
-                    </div>
-
-                    <div style="margin-top:32px;">
-                        <div class="sec-title">Student Roadmap Status</div>
-                        <div class="tbl-wrap">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Student</th>
-                                        <th>Status</th>
-                                        <th>Last Updated</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="rm-status-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Student custom roadmap viewer -->
-                    <div id="rm-student-viewer" style="display:none;margin-top:24px;">
-                        <div class="sec-title" id="rm-viewer-title">Student's Custom Roadmap</div>
-                        <div class="rm-table-wrap">
-                            <table class="rm-table">
-                                <thead>
-                                    <tr>
-                                        <th>Day</th>
-                                        <th>Physics</th>
-                                        <th>Chemistry</th>
-                                        <th>Maths</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="rm-viewer-tbody"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- CHECK-INS -->
                 <div id="tab-checkins" class="tab-panel">
                     <div class="admin-top">
                         <h1>Today's Check-ins</h1><span class="badge badge-green"
-                            style="font-size:13px;padding:5px 13px;" id="admin-stat-checkins-badge">-- / -- submitted</span>
+                            style="font-size:13px;padding:5px 13px;" id="admin-stat-checkins-badge">-- / --
+                            submitted</span>
                     </div>
                     <div class="ci-list" id="admin-checkins"></div>
                 </div>
@@ -2766,13 +2882,13 @@
         window.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.logo-circle img').forEach(img => img.src = LOGO);
             document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            
+
             // Dynamic Greeting
             const hr = new Date().getHours();
             let greeting = 'Good evening';
             if (hr < 12) greeting = 'Good morning';
             else if (hr < 17) greeting = 'Good afternoon';
-            
+
             const adminGreetEl = document.getElementById('admin-greeting-text');
             if (adminGreetEl) adminGreetEl.textContent = greeting;
 
@@ -2821,13 +2937,13 @@
                 });
                 buildStuTable(STUDENTS_DATA);
             }
-            
+
             // 1.5 Load all student roadmaps
             const { data: allCustRM } = await _supabase
                 .from('student_roadmaps')
                 .select('*')
                 .order('id', { ascending: true });
-            
+
             STUDENT_ROADMAPS = {};
             if (allCustRM) {
                 allCustRM.forEach(r => {
@@ -3004,36 +3120,8 @@
         }
 
         async function loadStudentData(userId) {
-            // Load student's own custom roadmap if any
-            const { data: custRM } = await _supabase
-                .from('student_roadmaps')
-                .select('*')
-                .eq('student_id', userId)
-                .order('id', { ascending: true });
-            STUDENT_ROADMAPS[userId] = {};
-            if (custRM && custRM.length) {
-                custRM.forEach(r => {
-                    const wk = r.week_number || 1;
-                    if (!STUDENT_ROADMAPS[userId][wk]) STUDENT_ROADMAPS[userId][wk] = [];
-                    STUDENT_ROADMAPS[userId][wk].push({ day: r.day_label, physics: r.physics, chemistry: r.chemistry, maths: r.maths });
-                });
-            }
-            // Load ideal roadmap if not already populated
-            if (!Object.keys(IDEAL_ROADMAP.weeks).length || !IDEAL_ROADMAP.weeks[1]) {
-                const { data: rmRows } = await _supabase
-                    .from('roadmaps')
-                    .select('*')
-                    .order('week_number', { ascending: true })
-                    .order('id', { ascending: true });
-                if (rmRows && rmRows.length) {
-                    IDEAL_ROADMAP.title = rmRows[0].title;
-                    IDEAL_ROADMAP.weeks = {};
-                    rmRows.forEach(r => {
-                        if (!IDEAL_ROADMAP.weeks[r.week_number]) IDEAL_ROADMAP.weeks[r.week_number] = [];
-                        IDEAL_ROADMAP.weeks[r.week_number].push({ day: r.day_label, physics: r.physics, chemistry: r.chemistry, maths: r.maths });
-                    });
-                }
-            }
+            // Load backlogs
+            await renderBacklogsUI(userId);
             // Fetch student's overall check-ins for stats
             const { data: allStudentCI } = await _supabase
                 .from('checkins')
@@ -3050,7 +3138,7 @@
                 const dates = [...new Set(allStudentCI.map(c => c.created_at.split('T')[0]))].sort().reverse();
                 const checkDate = d => { const dd = new Date(d); dd.setHours(0, 0, 0, 0); return dd; };
                 let prev = new Date(); prev.setHours(0, 0, 0, 0);
-                
+
                 for (const d of dates) {
                     const cd = checkDate(d);
                     const diff = Math.round((prev - cd) / 86400000);
@@ -3113,8 +3201,6 @@
                 document.getElementById('stu-av').textContent = displayName.split(' ').map(w => w[0]).join('');
                 document.getElementById('stu-av').style.background = AVATAR_GRADIENTS[prof.avatar_gradient || 0];
                 await loadStudentData(userId);
-                buildStuRMWeekTabs();
-                renderStudentRM();
                 showPage('page-student');
             } else {
                 await loadAdminDashboard();
@@ -3124,8 +3210,7 @@
         async function logout() {
             await _supabase.auth.signOut();
             currentUser = null; currentUserProfile = null; currentMood = null; currentGoal = null;
-            studentRMMode = 'ideal'; profileOpen = false;
-            STUDENT_ROADMAPS[currentUser] = null;
+            profileOpen = false;
             document.getElementById('profile-panel').classList.remove('open');
             document.getElementById('checkin-card').style.display = '';
             document.getElementById('done-banner').style.display = 'none';
@@ -3138,7 +3223,7 @@
         async function updateDoneBannerStreak() {
             const container = document.getElementById('done-banner-streak');
             if (!container) return;
-            
+
             const curr = new Date();
             const dayOfWeek = curr.getDay() === 0 ? 6 : curr.getDay() - 1; // 0 for Mon, 6 for Sun
             const startOfWeek = new Date(curr);
@@ -3184,11 +3269,29 @@
             else if (val === 'no') btn.classList.add('sel-no');
             else btn.classList.add('sel-partial');
         }
+        let currentLectures = null;
+        let currentHomework = null;
+        function pickLectures(btn, val) {
+            btn.parentElement.querySelectorAll('.yn-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            currentLectures = (val === 'yes');
+        }
+        function pickHomework(btn, val) {
+            btn.parentElement.querySelectorAll('.yn-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            currentHomework = (val === 'yes');
+        }
         async function submitCheckin() {
             const target = document.getElementById('q-target').value.trim();
             if (!target) { alert("Please fill in today's target!"); return; }
             if (!currentMood) { alert("Please select your mood!"); return; }
             if (!currentGoal) { alert("Please answer the goals question!"); return; }
+            if (currentLectures === null) { alert("Please select whether you attended today's lectures!"); return; }
+            if (currentHomework === null) { alert("Please select whether the homework is completed!"); return; }
+
+            const mcqsVal = parseInt(document.getElementById('q-mcqs').value);
+            const mcqs_solved = isNaN(mcqsVal) ? 0 : mcqsVal;
+            const backlogs = document.getElementById('q-backlogs').value.trim();
             const note = document.getElementById('q-notes') ? document.getElementById('q-notes').value.trim() : '';
             const goalsMap = { 'yes': 'Yes', 'no': 'No', 'partial': 'Partial' };
             const { error } = await _supabase.from('checkins').insert({
@@ -3196,12 +3299,34 @@
                 target,
                 mood: currentMood,
                 goals: goalsMap[currentGoal] || currentGoal,
+                lectures_attended: currentLectures,
+                homework_completed: currentHomework,
+                mcqs_solved,
+                backlogs,
                 note
             });
             if (error) { alert('Error saving check-in: ' + error.message); return; }
+
+            // Clear check-in inputs
+            document.getElementById('q-target').value = '';
+            document.getElementById('q-mcqs').value = '';
+            document.getElementById('q-backlogs').value = '';
+            if (document.getElementById('q-notes')) document.getElementById('q-notes').value = '';
+            currentMood = null;
+            currentGoal = null;
+            currentLectures = null;
+            currentHomework = null;
+            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.goal-btn').forEach(b => b.className = 'goal-btn');
+            document.querySelectorAll('.yn-btn').forEach(b => b.classList.remove('selected'));
+            document.getElementById('mood-response').classList.remove('show');
+
             document.getElementById('checkin-card').style.display = 'none';
             await updateDoneBannerStreak();
             document.getElementById('done-banner').style.display = 'block';
+
+            // Refresh backlogs
+            await renderBacklogsUI(currentUser);
         }
 
         // ── ADMIN TABS ─────────────────────────────────────────
@@ -3212,29 +3337,11 @@
             el.classList.add('active');
         }
 
-        let currentStudentWeek = 1;
-        function buildStuRMWeekTabs() {
-            const tabs = document.getElementById('stu-rm-week-tabs');
-            if (tabs) {
-                const weeks = Object.keys(IDEAL_ROADMAP.weeks).map(Number);
-                if (weeks.length === 0) { tabs.innerHTML = ''; return; }
-                if (!weeks.includes(currentStudentWeek)) currentStudentWeek = Math.max(...weeks, 1);
-                
-                tabs.innerHTML = weeks.map(w => `<button class="rm-week-tab ${w == currentStudentWeek ? 'active' : ''}" onclick="selectStuRMWeek(${w},this)">Week ${w}</button>`).join('');
-            }
-        }
-        function selectStuRMWeek(w, el) {
-            currentStudentWeek = w;
-            document.querySelectorAll('#stu-rm-week-tabs .rm-week-tab').forEach(t => t.classList.remove('active'));
-            el.classList.add('active');
-            renderStudentRM();
-        }
+
 
         // ── STUDENTS TABLE ─────────────────────────────────────
         function buildStuTable(data) {
             document.getElementById('stu-tbody').innerHTML = data.map(s => {
-                const custom = STUDENT_ROADMAPS[s.id] && STUDENT_ROADMAPS[s.id][currentAdminWeek];
-                const rmStatus = custom ? `<span class="rm-modified-badge">✏️ Modified</span>` : `<span class="rm-sent-badge">✅ Ideal</span>`;
                 const stBadge = s.status === 'at-risk' ? `<span class="badge badge-red">At Risk</span>` : s.status === 'low-mood' ? `<span class="badge badge-amber">Low Mood</span>` : `<span class="badge badge-green">Active</span>`;
                 return `<tr>
       <td><strong>${s.name}</strong></td>
@@ -3242,11 +3349,9 @@
       <td>🔥 ${s.streak}</td>
       <td>${M_EMO[s.mood]}</td>
       <td>${s.goals}%</td>
-      <td>${rmStatus}</td>
       <td>${stBadge}</td>
       <td style="display:flex;gap:6px;">
         <button class="btn btn-primary btn-sm" onclick="openStudentDrawer('${s.email}')">📊 Stats</button>
-        <button class="btn btn-ghost btn-sm" onclick="viewStudentRM('${s.id}','${s.name}')">🗺️ RM</button>
       </td>
     </tr>`;
             }).join('');
@@ -3254,222 +3359,81 @@
         function filterStudents(q) { buildStuTable(STUDENTS_DATA.filter(s => s.name.toLowerCase().includes(q.toLowerCase()) || s.batch.toLowerCase().includes(q.toLowerCase()))); }
         function toggleAddForm() { document.getElementById('add-form').classList.toggle('open'); }
 
-        // ── ADMIN ROADMAP ──────────────────────────────────────
-        function buildRMWeekTabs() {
-            const tabs = document.getElementById('rm-week-tabs');
-            tabs.innerHTML = Object.keys(IDEAL_ROADMAP.weeks).map(w => `<button class="rm-week-tab ${w == currentAdminWeek ? 'active' : ''}" onclick="selectRMWeek(${w},this)">Week ${w}</button>`).join('');
-            tabs.innerHTML += `<button class="rm-week-tab" onclick="addRMWeek(this)">+ New Week</button>`;
-        }
-        function selectRMWeek(w, el) { currentAdminWeek = w; document.querySelectorAll('.rm-week-tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); buildAdminRM(); buildRMStatusTable(); }
-        function addRMWeek(el) {
-            const weekKeys = Object.keys(IDEAL_ROADMAP.weeks).map(Number);
-            const newW = weekKeys.length ? Math.max(...weekKeys) + 1 : 1;
-            
-            // Generate dates for current week
-            const curr = new Date();
-            const dayOfWeek = curr.getDay() === 0 ? 6 : curr.getDay() - 1; // 0 for Mon, 6 for Sun
-            const monday = new Date(curr);
-            monday.setDate(curr.getDate() - dayOfWeek);
-
-            const days = [];
-            for (let i = 0; i < 7; i++) {
-                const d = new Date(monday);
-                d.setDate(monday.getDate() + i);
-                const dayName = d.toLocaleDateString('en-IN', { weekday: 'long' });
-                const dayDate = d.getDate();
-                const monthName = d.toLocaleDateString('en-IN', { month: 'long' });
-                const suffix = (dayDate % 10 === 1 && dayDate !== 11) ? 'st' : (dayDate % 10 === 2 && dayDate !== 12) ? 'nd' : (dayDate % 10 === 3 && dayDate !== 13) ? 'rd' : 'th';
-                days.push(`${dayName}, ${dayDate}${suffix} ${monthName}`);
-            }
-
-            IDEAL_ROADMAP.weeks[newW] = [
-                { day: days[0], physics: '', chemistry: '', maths: '' },
-                { day: days[1], physics: '', chemistry: '', maths: '' },
-                { day: days[2], physics: '', chemistry: '', maths: '' },
-                { day: days[3], physics: '', chemistry: '', maths: '' },
-                { day: days[4], physics: '', chemistry: '', maths: '' },
-                { day: days[5], physics: 'BUFFER', chemistry: 'BUFFER', maths: 'BUFFER' },
-                { day: days[6], physics: 'BUFFER', chemistry: 'BUFFER', maths: 'BUFFER' }
-            ];
-            currentAdminWeek = newW; buildRMWeekTabs(); buildAdminRM(); buildRMStatusTable();
-        }
-
-        function handleDatePick(val, isAdmin, i) {
-            const d = new Date(val);
-            if (isNaN(d)) return;
-            const dayName = d.toLocaleDateString('en-IN', { weekday: 'long' });
-            const dayDate = d.getDate();
-            const monthName = d.toLocaleDateString('en-IN', { month: 'long' });
-            const suffix = (dayDate % 10 === 1 && dayDate !== 11) ? 'st' : (dayDate % 10 === 2 && dayDate !== 12) ? 'nd' : (dayDate % 10 === 3 && dayDate !== 13) ? 'rd' : 'th';
-            const str = `${dayName}, ${dayDate}${suffix} ${monthName}`;
-            
-            if (isAdmin) {
-                document.getElementById(`admin-day-input-${i}`).value = str;
-                updateRMCell(i, 'day', str);
+        // ── PERSISTENT BACKLOGS ────────────────────────────────
+        async function toggleBacklog(checkinId, userId) {
+            const key = `resolved_backlogs_${userId}`;
+            let resolved = JSON.parse(localStorage.getItem(key) || '[]');
+            if (resolved.includes(checkinId)) {
+                resolved = resolved.filter(id => id !== checkinId);
             } else {
-                document.getElementById(`stu-day-input-${i}`).value = str;
-                updateStuRM(i, 'day', str);
+                resolved.push(checkinId);
             }
+            localStorage.setItem(key, JSON.stringify(resolved));
+            await renderBacklogsUI(userId);
         }
 
-        function buildAdminRM() {
-            const rows = IDEAL_ROADMAP.weeks[currentAdminWeek] || [];
-            document.getElementById('rm-week-title').value = IDEAL_ROADMAP.title;
-            document.getElementById('rm-admin-tbody').innerHTML = rows.map((r, i) => {
-                return `<tr>
-      <td>
-        <div style="display:flex; align-items:center; gap:4px; position:relative;">
-          <input class="rm-input" id="admin-day-input-${i}" value="${r.day}" onchange="updateRMCell(${i},'day',this.value)" style="min-width:130px; flex:1;">
-          <input type="date" title="Pick date" onchange="handleDatePick(this.value, true, ${i})" style="position:absolute; right:5px; opacity:0; width:20px; cursor:pointer;" />
-          <span style="pointer-events:none; right:8px; position:absolute; font-size:14px;">📅</span>
-        </div>
-      </td>
-      <td><input class="rm-input" value="${r.physics}" onchange="updateRMCell(${i},'physics',this.value)"></td>
-      <td><input class="rm-input" value="${r.chemistry}" onchange="updateRMCell(${i},'chemistry',this.value)"></td>
-      <td><input class="rm-input" value="${r.maths}" onchange="updateRMCell(${i},'maths',this.value)"></td>
-    </tr>`;
-            }).join('');
-        }
+        async function renderBacklogsUI(userId) {
+            const { data: checkins, error } = await _supabase
+                .from('checkins')
+                .select('id, created_at, backlogs')
+                .eq('student_id', userId)
+                .order('created_at', { ascending: false });
 
-        function updateRMCell(i, col, val) { if (IDEAL_ROADMAP.weeks[currentAdminWeek][i]) IDEAL_ROADMAP.weeks[currentAdminWeek][i][col] = val; }
-        function addRMRow() {
-            IDEAL_ROADMAP.weeks[currentAdminWeek].push({ day: 'New Day', physics: '', chemistry: '', maths: '' });
-            buildAdminRM();
-        }
-        async function saveIdealRM() {
-            IDEAL_ROADMAP.title = document.getElementById('rm-week-title').value || "Roadmap";
-            const weekData = IDEAL_ROADMAP.weeks[currentAdminWeek];
-            if (weekData) {
-                const btn = document.querySelector('#tab-roadmap .btn-primary');
-                const originalText = btn.textContent;
-                btn.textContent = 'Saving...';
-                
-                await _supabase.from('roadmaps').delete().eq('week_number', currentAdminWeek);
-                
-                const inserts = weekData.map(r => ({
-                    week_number: currentAdminWeek,
-                    day_label: r.day,
-                    physics: r.physics,
-                    chemistry: r.chemistry,
-                    maths: r.maths,
-                    title: IDEAL_ROADMAP.title
-                }));
-                const { error } = await _supabase.from('roadmaps').insert(inserts);
-                if (error) { alert('Error saving roadmap: ' + error.message); btn.textContent = originalText; return; }
-                btn.textContent = originalText;
+            if (error) {
+                console.error("Error loading backlogs:", error);
+                return;
             }
 
-            buildRMWeekTabs(); buildRMStatusTable();
-            alert('✅ Roadmap published to all students! They will see it on their next login.');
-        }
+            const backlogList = document.getElementById('backlog-list');
+            const backlogCountBadge = document.getElementById('backlog-count');
+            if (!backlogList) return;
 
-        function buildRMStatusTable() {
-            document.getElementById('rm-status-tbody').innerHTML = STUDENTS_DATA.map(s => {
-                const custom = STUDENT_ROADMAPS[s.id] && STUDENT_ROADMAPS[s.id][currentAdminWeek];
-                const status = custom ? `<span class="rm-modified-badge">✏️ Customised by student</span>` : `<span class="rm-sent-badge">✅ Using ideal roadmap</span>`;
-                return `<tr><td><strong>${s.name}</strong></td><td>${status}</td><td>${custom ? 'Week target' : '—'}</td><td><button class="btn btn-ghost btn-sm" onclick="viewStudentRM('${s.id}','${s.name}')">View</button></td></tr>`;
-            }).join('');
-        }
+            const items = (checkins || []).filter(c => c.backlogs && c.backlogs.trim() !== '');
+            const key = `resolved_backlogs_${userId}`;
+            const resolved = JSON.parse(localStorage.getItem(key) || '[]');
 
-        function viewStudentRM(studentId, name) {
-            const custom = STUDENT_ROADMAPS[studentId] && STUDENT_ROADMAPS[studentId][currentAdminWeek];
-            const rows = custom || IDEAL_ROADMAP.weeks[currentAdminWeek] || [];
-            document.getElementById('rm-viewer-title').textContent = custom ? `${name}'s Custom Roadmap (Week ${currentAdminWeek})` : `${name} — Using Ideal Roadmap (Week ${currentAdminWeek})`;
-            document.getElementById('rm-viewer-tbody').innerHTML = rows.map(r => {
-                return `<tr><td class="rm-day-label">${r.day}</td><td>${r.physics}</td><td>${r.chemistry}</td><td>${r.maths}</td></tr>`;
-            }).join('');
-            document.getElementById('rm-student-viewer').style.display = 'block';
-            // scroll to it
-            aTab('roadmap', document.querySelector('.sitem:nth-child(3)'));
-            setTimeout(() => document.getElementById('rm-student-viewer').scrollIntoView({ behavior: 'smooth' }), 100);
-        }
-
-        // ── STUDENT ROADMAP ─────────────────────────────────────
-        function renderStudentRM() {
-            const userId = currentUser;
-            const customRM = STUDENT_ROADMAPS[userId] ? STUDENT_ROADMAPS[userId][currentStudentWeek] : null;
-            const rows = customRM || IDEAL_ROADMAP.weeks[currentStudentWeek] || [];
-            const isCustom = !!customRM;
-            document.getElementById('rm-stu-title-label').textContent = IDEAL_ROADMAP.title || "Roadmap";
-            const badge = document.getElementById('rm-mode-badge');
-            badge.textContent = isCustom ? '✏️ Your Custom Roadmap' : '📋 Ideal Roadmap';
-            badge.className = 'rm-mode-badge ' + (isCustom ? 'mode-custom' : 'mode-ideal');
-            document.getElementById('rm-stu-tbody').innerHTML = rows.map((r, i) => {
-                if (studentRMMode === 'edit') {
-                    return `<tr>
-        <td>
-          <div style="display:flex; align-items:center; gap:4px; position:relative;">
-            <input class="rm-edit-input" id="stu-day-input-${i}" value="${r.day}" onchange="updateStuRM(${i},'day',this.value)" style="min-width:110px; flex:1;">
-            <input type="date" title="Pick date" onchange="handleDatePick(this.value, false, ${i})" style="position:absolute; right:5px; opacity:0; width:20px; cursor:pointer;" />
-            <span style="pointer-events:none; right:8px; position:absolute; font-size:14px;">📅</span>
-          </div>
-        </td>
-        <td><input class="rm-edit-input" value="${r.physics}" onchange="updateStuRM(${i},'physics',this.value)"></td>
-        <td><input class="rm-edit-input" value="${r.chemistry}" onchange="updateStuRM(${i},'chemistry',this.value)"></td>
-        <td><input class="rm-edit-input" value="${r.maths}" onchange="updateStuRM(${i},'maths',this.value)"></td>
-      </tr>`;
+            const activeCount = items.filter(item => !resolved.includes(item.id)).length;
+            if (backlogCountBadge) {
+                backlogCountBadge.textContent = `${activeCount} Active`;
+                if (activeCount === 0) {
+                    backlogCountBadge.className = 'backlog-count-badge clear';
+                } else {
+                    backlogCountBadge.className = 'backlog-count-badge';
                 }
-                return `<tr><td class="rm-day-label" style="font-size:12px;">${r.day}</td><td style="font-size:12px;">${r.physics}</td><td style="font-size:12px;">${r.chemistry}</td><td style="font-size:12px;">${r.maths}</td></tr>`;
+            }
+
+            if (items.length === 0) {
+                backlogList.innerHTML = `
+                    <div class="backlog-empty">
+                        <div class="big-ico">🎯</div>
+                        No backlogs encountered yet. Keep it up!
+                    </div>`;
+                return;
+            }
+
+            backlogList.innerHTML = items.map(item => {
+                const isResolved = resolved.includes(item.id);
+                const dateStr = new Date(item.created_at).toLocaleDateString('en-IN', {
+                    day: 'numeric', month: 'short', year: 'numeric'
+                });
+                return `
+                    <div class="backlog-item ${isResolved ? 'resolved' : ''}">
+                        <div class="backlog-check ${isResolved ? 'checked' : ''}" onclick="toggleBacklog('${item.id}', '${userId}')">
+                            ${isResolved ? '✓' : ''}
+                        </div>
+                        <div class="backlog-text">
+                            <div class="backlog-desc">${escapeHTML(item.backlogs)}</div>
+                            <div class="backlog-date">Encountered on ${dateStr}</div>
+                        </div>
+                    </div>`;
             }).join('');
         }
 
-        let tempStuRM = null;
-        function toggleRMEdit() {
-            if (studentRMMode === 'ideal' || studentRMMode === 'view') {
-                studentRMMode = 'edit';
-                // copy current RM for editing
-                const src = (STUDENT_ROADMAPS[currentUser] && STUDENT_ROADMAPS[currentUser][currentStudentWeek]) || IDEAL_ROADMAP.weeks[currentStudentWeek] || [];
-                tempStuRM = JSON.parse(JSON.stringify(src));
-                if (!STUDENT_ROADMAPS[currentUser]) STUDENT_ROADMAPS[currentUser] = {};
-                STUDENT_ROADMAPS[currentUser][currentStudentWeek] = tempStuRM;
-                document.getElementById('rm-edit-btn').textContent = '✏️ Editing…';
-                document.getElementById('rm-save-btn').style.display = '';
-                document.getElementById('rm-reset-btn').style.display = '';
-            }
-            renderStudentRM();
-        }
-        function updateStuRM(i, col, val) { if (STUDENT_ROADMAPS[currentUser] && STUDENT_ROADMAPS[currentUser][currentStudentWeek] && STUDENT_ROADMAPS[currentUser][currentStudentWeek][i]) STUDENT_ROADMAPS[currentUser][currentStudentWeek][i][col] = val; }
-        async function saveRMEdits() {
-            studentRMMode = 'view';
-            document.getElementById('rm-edit-btn').textContent = '✏️ Customise';
-            document.getElementById('rm-save-btn').style.display = 'none';
-            document.getElementById('rm-reset-btn').style.display = 'none';
-            renderStudentRM();
-            // Persist to Supabase
-            const rows = STUDENT_ROADMAPS[currentUser][currentStudentWeek];
-            if (rows) {
-                // Delete old entries first
-                await _supabase.from('student_roadmaps').delete().eq('student_id', currentUser).eq('week_number', currentStudentWeek);
-                // Insert fresh rows
-                const inserts = rows.map((r, i) => ({
-                    student_id: currentUser,
-                    week_number: currentStudentWeek,
-                    day_label: r.day,
-                    physics: r.physics,
-                    chemistry: r.chemistry,
-                    maths: r.maths
-                }));
-                const { error } = await _supabase.from('student_roadmaps').insert(inserts);
-                if (error) { console.error('RM save error:', error); }
-            }
-            const banner = document.createElement('div');
-            banner.style.cssText = 'position:fixed;top:80px;right:24px;background:#1a2e1a;border:1px solid #22c55e;color:#22c55e;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:600;z-index:200;';
-            banner.textContent = '✅ Roadmap saved! Your mentor can now see your changes.';
-            document.body.appendChild(banner); setTimeout(() => banner.remove(), 3500);
-        }
-        async function resetRM() {
-            if (currentUser) {
-                await _supabase.from('student_roadmaps').delete().eq('student_id', currentUser).eq('week_number', currentStudentWeek);
-            }
-            if (STUDENT_ROADMAPS[currentUser]) {
-                delete STUDENT_ROADMAPS[currentUser][currentStudentWeek];
-                if (Object.keys(STUDENT_ROADMAPS[currentUser]).length === 0) STUDENT_ROADMAPS[currentUser] = null;
-            }
-            studentRMMode = 'ideal';
-            document.getElementById('rm-edit-btn').textContent = '✏️ Customise';
-            document.getElementById('rm-save-btn').style.display = 'none';
-            document.getElementById('rm-reset-btn').style.display = 'none';
-            renderStudentRM();
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.replace(/[&<>'"]/g,
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
         }
 
         // ── REUSABLE TOAST ─────────────────────────────────────
